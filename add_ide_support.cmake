@@ -14,6 +14,8 @@ function(target_add_ide_support target_name)
   endif()
 
   get_target_property(dirs ${target_name} INCLUDE_DIRECTORIES)
-  target_include_directories(${target_for_ide} PRIVATE ${dirs})
+  if (dirs)
+      target_include_directories(${target_for_ide} PRIVATE ${dirs})
+  endif()
 
 endfunction(target_add_ide_support)
